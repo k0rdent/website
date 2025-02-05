@@ -227,6 +227,7 @@ Table Of Contents:
 			  float: right; 
 			  margin-right: 5rem;
 			  padding-top: 10px;
+			  outline: none;
 		  }
 		  .dropdown-menu {
 			  z-index: 1200; 
@@ -257,6 +258,10 @@ Table Of Contents:
 			  }
 		  }
 	  }
+	  .dropdown:hover > .dropdown-menu {
+		display: block; /* this makes the dropdown menu stay open while hovering it */
+		min-width: auto;
+	}
   }
   
   
@@ -265,84 +270,50 @@ Table Of Contents:
 	  box-shadow: 0 0.0625rem 0.375rem 0 rgba(0, 0, 0, 0.1);
 	  font: 700 16px "Overpass";
 	  transition: all 0.2s ease;
-  }
-  
-  .navbar-custom .navbar-brand {
-	text-decoration: none;
-	font-size: 12px;
-	padding-top: 0px;
-	background-image: none;
-  }
-  
-  .navbar-custom .navbar-brand span {
-	opacity: 0.5;
-  }
-
-  .navbar-custom .navbar-brand p {
-	font-size: 14px;
-	margin-bottom: 0px;
-	display: inline;
-  }
-  
-  .navbar-custom .navbar-brand img {
-	height: auto;
-	max-width: 200px;
-	display: inline;
-	margin-bottom: 10px;
-	margin-right: 24px;
-	backface-visibility: hidden;
-  }
-  
-  .navbar-custom .navbar-brand.logo-text {
-	  font: 700 2.375rem/1.5rem "Overpass";
-	  color: #fff;
-	  letter-spacing: -0.5px;
-	  text-decoration: none;
-  }
-  
-  .navbar-custom .navbar-nav {
-	  margin-top: 0.75rem;
-  }
-
-  .navbar-custom .nav-item {
-	padding-top : 5px;
-  }
-  
-  .navbar-custom .nav-item .nav-link {
-	  padding: 0 0.75rem 0 0.75rem;
-	  color: #fff;
-	  text-decoration: none;
-	  transition: all 0.2s ease;
-	  border: 1px solid transparent;
-	  background-image: none;
-  }
-  
-  .navbar-custom .nav-item .nav-link:hover,
-  .navbar-custom .nav-item .nav-link.active {
-	  color: var(--primary-color);
-  }
-  
-  /* Dropdown Menu */
-  .navbar-custom .dropdown:hover > .dropdown-menu {
-	  display: block; /* this makes the dropdown menu stay open while hovering it */
-	  min-width: auto;
-	  animation: fadeDropdown 0.2s; /* required for the fade animation */
-  }
-  
-  @keyframes fadeDropdown {
-	  0% {
-		  opacity: 0;
+	  .navbar-brand {
+		text-decoration: none;
+		font-size: 12px;
+		padding-top: 0px;
+		background-image: none;
+		span {
+			opacity: 0.5;
+		}
+		p {
+			font-size: 14px;
+			margin-bottom: 0px;
+			display: inline;
+		}
+		img {
+			height: auto;
+			max-width: 200px;
+			display: inline;
+			margin-bottom: 10px;
+			margin-right: 24px;
+			backface-visibility: hidden;
+		}
 	  }
-  
-	  100% {
-		  opacity: 1;
+	  .nav-item {
+		padding-top : 5px;
+		.nav-link {
+			padding: 0 0.75rem 0 0.75rem;
+			color: #fff;
+			text-decoration: none;
+			transition: all 0.2s ease;
+			border: 1px solid transparent;
+			background-image: none;
+			&:hover, &:active {
+				color: var(--primary-color);
+			}
+		}
+	  }
+	  @media(min-width: 992px) {
+		.fa-stack {
+			margin-bottom: 0.1875rem;
+		  	margin-left: 0.375rem;
+		  	font-size: 1rem;
+		}
 	  }
   }
-  
-  .navbar-custom .dropdown-toggle:focus { /* removes dropdown outline on focus  */
-	  outline: 0;
-  }
-  
   .navbar-custom .dropdown-menu {
 	  margin-top: 0;
 	  border: none;
@@ -422,6 +393,14 @@ Table Of Contents:
 		height: 280px; 	
 		background-size: cover;
 	  }
+	@media(min-width: 992px) {
+		.text-container {
+			margin-top: 6.5rem;
+		}
+		.header-content {
+			text-align: left;
+		}
+	}
 	@media(max-width: 992px) {
 		background: linear-gradient(to right, black, black), url('../images/aqua-blue-gradient-bg.png');
 		background-position-y: 0%, 50%;
@@ -445,19 +424,6 @@ Table Of Contents:
 	}
   }
   
-  .header #particles{
-	position: absolute;
-	width: 100%;
-	height: 100%;
-  }
-  
-  /* .header .thumbnail {
-	background-image: url("../images/k0rdent-overview-vid-thumb.png");
-	display: flex;
-	justify-content: center;
-	height: 280px; 	
-	background-size: cover;
-  } */
   .header .header-content {
 	  padding-top: 2rem;
 	  padding-bottom: 6rem;
@@ -515,30 +481,6 @@ Table Of Contents:
 	}
   }
 
-  /* .header .play-button {
-	background-color: transparent;
-	border: none;
-	outline: none;
-  } */
-
-  /* .header .modal-content {
-	background-color: transparent;
-	border: none;
-	.modal-header {
-		border-bottom: none;
-		.close {
-			color: white;
-			opacity: 1;
-		}
-	}
-	.modal-body {
-		height: 450px;
-		iframe {
-			height: 100%;
-			width: 100%;
-		}
-	}
-  } */
  /****************************/
   /*     Modal Styling    */
   /****************************/
@@ -571,67 +513,6 @@ Table Of Contents:
   }
 
   
-  /****************************/
-  /*     05. Testimonials     */
-  /****************************/
-  .slider-1 {
-	  padding-top: 6.875rem;
-	  padding-bottom: 6.375rem;
-	background: var(--dark-bg);
-  }
-  
-  .slider-1 .slider-container {
-	  position: relative;
-  }
-  
-  .slider-1 .swiper-container {
-	  position: static;
-	  width: 90%;
-	  text-align: center;
-  }
-  
-  .slider-1 .swiper-button-prev:focus,
-  .slider-1 .swiper-button-next:focus {
-	  /* even if you can't see it chrome you can see it on mobile device */
-	  outline: none;
-  }
-  
-  .slider-1 .swiper-button-prev {
-	  left: -0.5rem;
-	  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2028%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23f1f1f8'%2F%3E%3C%2Fsvg%3E");
-	  background-size: 1.125rem 1.75rem;
-  }
-  
-  .slider-1 .swiper-button-next {
-	  right: -0.5rem;
-	  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2028%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23f1f1f8'%2F%3E%3C%2Fsvg%3E");
-	  background-size: 1.125rem 1.75rem;
-  }
-  
-  .slider-1 .card {
-	  position: relative;
-	  border: none;
-	  background-color: transparent;
-  }
-  
-  .slider-1 .card-image {
-	  width: 6rem;
-	  height: 6rem;
-	  margin-right: auto;
-	  margin-bottom: 0.25rem;
-	  margin-left: auto;
-	  border-radius: 50%;
-  }
-  
-  .slider-1 .card-body {
-	  padding-bottom: 0;
-  }
-  
-  .slider-1 .testimonial-author {
-	  margin-bottom: 0;
-  }
-  
-  
   /************************/
   /*     05. Features     */
   /************************/
@@ -640,148 +521,7 @@ Table Of Contents:
 		font-size: 40px;
 	}
   }
-  .tabs {
-	  padding-top: 6.5rem;
-	  padding-bottom: 4.25rem;
-	  background: var(--light-dark-bg);
-  }
-  
-  .tabs h2 {
-	  margin-bottom: 1.125rem;
-	  text-align: center;
-  }
-  
-  .tabs .p-heading {
-	  margin-bottom: 3.125rem;
-  }
-  
-  .tabs .nav-tabs {
-	  margin-right: auto;
-	  margin-bottom: 2.5rem;
-	  margin-left: auto;
-	  justify-content: center;
-	  border-bottom: none;
-  }
-  
-  .tabs .nav-link {
-	  margin-bottom: 1rem;
-	  padding: 0.5rem 1.375rem 0.25rem 1.375rem;
-	  border: none;
-	  border-bottom: 0.1875rem solid #f1f1f8;
-	  border-radius: 0;
-	  color: #f1f1f8;
-	  font: 700 1rem/1.75rem "Overpass";
-	  text-decoration: none;
-	  transition: all 0.2s ease;
-  }
-  
-  .tabs .nav-link.active,
-  .tabs .nav-link:hover {
-	  border-bottom: 0.1875rem solid var(--primary-color);
-	  background-color: transparent;
-	  color: var(--primary-color);
-  }
-  
-  .tabs .nav-link .fas {
-	  margin-right: 0.375rem;
-	  font-size: 1rem;
-  }
-  
-  .tabs .tab-content {
-	  width: 100%; /* for proper display in IE11 */
-  }
-  
-  .tabs .card {
-	  border: none;
-	  background: transparent;
-  }
-  
-  .tabs .card-body {
-	  padding: 1rem 0 1.25rem 0;
-  }
-  
-  .tabs .card-title {
-	  margin-bottom: 0.5rem;
-  }
-  
-  .tabs .card .card-icon {
-	  display: inline-block;
-	  width: 3.5rem;
-	  height: 3.5rem;
-	  border-radius: 50%;
-	  background-color: var(--primary-color);
-	  text-align: center;
-	  vertical-align: top;
-  }
-  
-  .tabs .card .card-icon .fas,
-  .tabs .card .card-icon .far {
-	  color: #fff;
-	  font-size: 1.75rem;
-	  line-height: 3.5rem;
-  }
-  
-  .tabs #tab-1 .card.left-pane .text-wrapper {
-	  display: inline-block;
-	  width: 75%;
-  }
-  
-  .tabs #tab-1 .card.left-pane .card-icon {
-	  float: left;
-	  margin-right: 1rem;
-  }
-  
-  .tabs #tab-1 img {
-	  display: block;
-	  margin: 2rem auto 3rem auto;
-  }
-  
-  .tabs #tab-1 .card.right-pane .text-wrapper {
-	  display: inline-block;
-	  width: 75%;
-  }
-  
-  .tabs #tab-1 .card.right-pane .card-icon {
-	  margin-right: 1rem;
-  }
-  
-  .tabs #tab-2 img {
-	  display: block;
-	  margin: 0 auto 2rem auto;
-  }
-  
-  .tabs #tab-2 .text-area {
-	  margin-top: 1.5rem;
-  }
-  
-  .tabs #tab-2 h3 {
-	  margin-bottom: 0.75rem;
-  }
-  
-  .tabs #tab-2 .icon-cards-area {
-	  margin-top: 2.5rem;
-  }
-  
-  .tabs #tab-2 .icon-cards-area .card {
-	  width: 100%; /* for proper display in IE11 */
-  }
-  
-  .tabs #tab-3 .icon-cards-area .card {
-	  width: 100%; /* for proper display in IE11 */
-  }
-  
-  .tabs #tab-3 .text-area {
-	  margin-top: 0.75rem;
-	  margin-bottom: 4rem;
-  }
-  
-  .tabs #tab-3 h3 {
-	  margin-bottom: 0.75rem;
-  }
-  
-  .tabs #tab-3 img {
-	  margin: 0 auto 3rem auto;
-  }
+
   
   
   /*********************/
@@ -999,27 +739,12 @@ Table Of Contents:
 	  }
   }
   
-  /* .basic-3 .text-container {
-	  margin-bottom: 3.5rem;
-  }
-  
-  .basic-3 h3 {
-	  margin-bottom: 1.125rem; */
-  }
   
   .basic-3 p{
 	font-size: 16px;
   }
   
-  /* .basic-3 .btn-solid-reg {
-	  margin-top: 0.5rem;
-  } */
 
-  /* .basic-3 img {
-	@media(max-width: 992px) {
-		max-width: 80vw;
-	}
-  } */
   
   .basic-3 .feature{
 	padding: 40px 0;
@@ -1080,128 +805,6 @@ Table Of Contents:
   
   .basic-3 .feature .feature-value ul li.label-value:first-of-type{
 	margin-top:0;
-  }
-  
-  /**********************************/
-  /*     09. Details Lightboxes     */
-  /**********************************/
-  .lightbox-basic {
-	  position: relative;
-	  max-width: 46.875rem;
-	  margin: 2.5rem auto;
-	  padding: 3rem 1rem;
-	  border-radius: 0.25rem;
-	  background: var(--light-dark-bg);
-	  text-align: left;
-  }
-  
-  .lightbox-basic img {
-	  display: block;
-	  margin-right: auto;
-	  margin-bottom: 3rem;
-	  margin-left: auto;
-  }
-  
-  .lightbox-basic h3 {
-	  margin-bottom: 0.625rem;
-  }
-  
-  .lightbox-basic hr {
-	  width: 3.75rem;
-	  height: 0.125rem;
-	  margin-top: 0.125rem;
-	  margin-bottom: 1.125rem;
-	  margin-left: 0;
-	  border: 0;
-	  background-color: var(--primary-color);
-	  text-align: left;
-  }
-  
-  .lightbox-basic h4 {
-	  margin-top: 1.75rem;
-	  margin-bottom: 0.75rem;
-  }
-  
-  .lightbox-basic table {
-	  margin-top: 1rem;
-	  margin-bottom: 1.5rem;
-  }
-  
-  .lightbox-basic table tr {
-	  line-height: 1.75em;
-  }
-  
-  .lightbox-basic table .icon-cell {
-	  width: 2rem;
-	  padding-right: 0.25rem;
-	  color: var(--primary-color);
-	  text-align: center;
-  }
-  
-  .lightbox-basic a.mfp-close.as-button {
-	  position: relative;
-	  width: auto;
-	  height: auto;
-	  margin-left: 0.375rem;
-	  color: var(--primary-color);
-	  opacity: 1;
-  }
-  
-  .lightbox-basic a.mfp-close.as-button:hover {
-	  color: #f1f1f8;
-  }
-  
-  .lightbox-basic button.mfp-close.x-button {
-	  position: absolute;
-	  top: -0.375rem;
-	  right: -0.375rem;
-	  width: 2.75rem;
-	  height: 2.75rem;
-	  color: #f1f1f8;
-  }
-  
-  
-  /***************************/
-  /*     10. Screenshots     */
-  /***************************/
-  .slider-2 {
-	  padding-top: 6.875rem;
-	  padding-bottom: 6.875rem;
-	  background: var(--light-dark-bg);
-  }
-  
-  .slider-2 .slider-container {
-	  position: relative;
-  }
-  
-  .slider-2 .swiper-container {
-	  position: static;
-	  width: 90%;
-	  text-align: center;
-  }
-  
-  .slider-2 .swiper-button-prev,
-  .slider-2 .swiper-button-next {
-	  top: 50%;
-	  width: 1.125rem;
-  }
-  
-  .slider-2 .swiper-button-prev:focus,
-  .slider-2 .swiper-button-next:focus {
-	  /* even if you can't see it chrome you can see it on mobile device */
-	  outline: none;
-  }
-  
-  .slider-2 .swiper-button-prev {
-	  left: -0.5rem;
-	  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2028%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E");
-	  background-size: 1.125rem 1.75rem;
-  }
-  
-  .slider-2 .swiper-button-next {
-	  right: -0.5rem;
-	  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2028%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E");
-	  background-size: 1.125rem 1.75rem;
   }
   
    /************************/
@@ -1311,52 +914,6 @@ Table Of Contents:
 	color: white;
   }
   
-  /**************************/
-  /*     12. Statistics     */
-  /**************************/
-  .counter {
-	  padding-top: 6.5rem;
-	  padding-bottom: 5.375rem;
-	  background: var(--dark-bg);
-	  text-align: center;
-  }
-  
-  .counter #counter .cell {
-	position: relative;
-	  display: inline-block;
-	  width: 7rem;
-	  margin-right: 1rem;
-	  margin-left: 1rem;
-	  margin-bottom: 2rem;
-  }
-  
-  .counter #counter .unit {
-	position: absolute;
-	right: 0;
-	bottom: 26px;
-	font-weight: 700;
-	font-size: 20px;
-  }
-  
-  .counter #counter .counter-value {
-	font: 700 2.5rem/2.25rem "Overpass";
-  }
-  
-  .counter #counter .counter-value a {
-	  color: #f1f1f8;
-	  font: 700 3.5rem/4.25rem "Overpass";
-	  vertical-align: middle;
-  }
-  
-  .counter #counter .counter-info,
-  .counter #counter .counter-info a {
-	  margin-bottom: 0;
-	  color: var(--primary-color);
-	  font: 400 0.875rem/1.25rem "Overpass";
-	  vertical-align: middle;
-	text-decoration: none;
-  }
-  
   
   /***********************/
   /*     13. Contact     */
@@ -1428,30 +985,6 @@ Table Of Contents:
   .footer .media-body {
 	  margin-left: 0.625rem;
   }
-  
-  /* .footer .fa-stack {
-	  margin-bottom: 0.75rem;
-	  margin-right: 0.5rem;
-	  font-size: 1.5rem;
-  }
-  
-  .footer .fa-stack .fa-stack-1x {
-	fill: #000;
-	  transition: all 0.2s ease;
-  }
-  
-  .footer .fa-stack .fa-stack-2x {
-	  fill: var(--primary-color);
-	  transition: all 0.2s ease;
-  }
-  
-  .footer .fa-stack:hover .fa-stack-1x {
-	  fill: #1AAAFF;
-  }
-  
-  .footer .fa-stack:hover .fa-stack-2x {
-	  fill: #fff;
-  } */
 
 .fa-stack {
 	margin-bottom: 0.75rem;
@@ -1494,13 +1027,7 @@ Table Of Contents:
 	  border-image: linear-gradient(90deg, #1DA7FD, #08F5DA);
       border-image-slice: 1;
   }
-  
-  .copyright .p-small {
-	  color: #f1f1f8;
-	  opacity: 0.6;
-  }
-  
-  
+
   /**********************************/
   /*     16. Back To Top Button     */
   /**********************************/
@@ -1522,315 +1049,18 @@ Table Of Contents:
 	  background-color: var(--primary-color-lighten);
   }
   
-  
-  /***************************/
-  /*     17. Extra Pages     */
-  /***************************/
-  .ex-header {
-	  padding-top: 8rem;
-	  padding-bottom: 5rem;
-	  background: linear-gradient(to bottom right, #2c1a7e, #5557db);
-	  text-align: center;
-  }
-  
-  .ex-basic-1 {
-	  padding-top: 2rem;
-	  padding-bottom: 0.875rem;
-	  background: var(--light-dark-bg);
-  }
-  
-  .ex-basic-1 .breadcrumbs {
-	  margin-bottom: 1.125rem;
-  }
-  
-  .ex-basic-1 .breadcrumbs .fa {
-	  margin-right: 0.5rem;
-	  margin-left: 0.625rem;
-  }
-  
-  .ex-basic-2 {
-	  padding-top: 4.75rem;
-	  padding-bottom: 4rem;
-	  background: var(--dark-bg);
-  }
-  
-  .ex-basic-2 h3 {
-	  margin-bottom: 1rem;
-  }
-  
-  .ex-basic-2 .text-container {
-	  margin-bottom: 3.625rem;
-  }
-  
-  .ex-basic-2 .text-container.last {
-	  margin-bottom: 0;
-  }
-  
-  .ex-basic-2 .list-unstyled .fas {
-	  color: var(--primary-color);
-	  font-size: 0.5rem;
-	  line-height: 1.375rem;
-  }
-  
-  .ex-basic-2 .list-unstyled .media-body {
-	  margin-left: 0.625rem;
-  }
-  
-  .ex-basic-2 .btn-outline-reg {
-	  margin-top: 1.75rem;
-  }
-  
-  .ex-basic-2 .image-container-large {
-	  margin-bottom: 4rem;
-  }
-  
-  .ex-basic-2 .image-container-large img {
-	  border-radius: 0.25rem;
-  }
-  
-  .ex-basic-2 .image-container-small img {
-	  border-radius: 0.25rem;
-  }
-  
-  .ex-basic-2 .text-container.dark-bg {
-	  padding: 1.625rem 1.5rem 0.75rem 2rem;
-	  background-color: #f9fafc;
-  }
-  
-  
+
   /*****************************/
   /*     18. Media Queries     */
   /*****************************/
-  /* Min-width width 768px */
-  @media (min-width: 768px) {
-  
-	  /* General Styles */
-	  .p-heading {
-		  width: 85%;
-		  margin-right: auto;
-		  margin-left: auto;
-	  }
-  
-	  h1 {
-		  font: 700 3.25rem/3.75rem "Overpass";
-	  }
-	  /* end of general styles */
-  
-  
-	  /* Navigation */
-	  /* .navbar-custom {
-		  padding: 2.125rem 1.5rem 2.125rem 2rem;
-		  box-shadow: none;
-		  background: transparent;
-	  } */
-  
-	  .navbar-custom .navbar-brand.logo-text {
-		  color: #fff;
-	  }
-  
-	  .navbar-custom .navbar-nav {
-		  margin-top: 0;
-	  }
-  
-	  .navbar-custom .nav-item .nav-link {
-		  padding: 0.25rem 0.75rem 0.25rem 0.75rem;
-		  color: #fff;
 
-	  }
-  
-	  .navbar-custom .nav-item .nav-link:hover,
-	  .navbar-custom .nav-item .nav-link.active {
-		  color: var(--primary-color);
-	  }
-  
-	  .navbar-custom.top-nav-collapse {
-		  padding: 0px 1.5rem 0.5rem 2rem;
-		  box-shadow: 0 0.0625rem 0.375rem 0 rgba(0, 0, 0, 0.1);
-		  background-color: var(--navbar-color);
-	  }
-  
-	  .navbar-custom.top-nav-collapse .navbar-brand.logo-text {
-		  color: #fff;
-	  }
-  
-	  .navbar-custom.top-nav-collapse .nav-item .nav-link {
-		  color: #fff;
-	  }
-  
-	  .navbar-custom.top-nav-collapse .nav-item .nav-link:hover,
-	  .navbar-custom.top-nav-collapse .nav-item .nav-link.active {
-		  color: var(--primary-color);
-	  }
-  
-	  .navbar-custom .dropdown-menu {
-		  box-shadow: 0 0.25rem 0.375rem 0 rgba(0, 0, 0, 0.03);
-	  }
-  
-	  .navbar-custom .dropdown-item {
-		  padding-top: 0.25rem;
-		  padding-bottom: 0.25rem;
-	  }
-  
-	  .navbar-custom .dropdown-items-divide-hr {
-		  width: 84%;
-	  }
-	  /* end of navigation */
-  
-  
-	  /* Header */
-	  .header .header-content {
-		  /* padding-top: 11rem; */
-	  }
-	  /* end of header */
-  
-  
-	  /* Testimonials */
-	  .slider-1 .swiper-button-prev {
-		  left: 1rem;
-		  width: 1.375rem;
-		  background-size: 1.375rem 2.125rem;
-	  }
-  
-	  .slider-1 .swiper-button-next {
-		  right: 1rem;
-		  width: 1.375rem;
-		  background-size: 1.375rem 2.125rem;
-	  }
-	  /* end of testimonials */
-  
-  
-	  /* Features */
-	  .tabs .card .card-icon {
-		  width: 4.5rem;
-		  height: 4.5rem;
-	  }
-  
-	  .tabs .card .card-icon .fas,
-	  .tabs .card .card-icon .far {
-		  font-size: 2.25rem;
-		  line-height: 4.5rem;
-	  }
-  
-	  .tabs #tab-1 .card.left-pane .text-wrapper {
-		  width: 85%;
-	  }
-  
-	  .tabs #tab-2 img {
-		  margin-bottom: 0;
-	  }
-  
-	  .tabs #tab-2 .text-area {
-		  margin-top: 0;
-	  }
-  
-	  .tabs #tab-2 .icon-cards-area .card {
-		  display: inline-block;
-		  width: 44%;
-		  margin-right: 2.5rem;
-		  vertical-align: top;
-	  }
-  
-	  .tabs #tab-2 div.card:nth-child(2n+2) {
-		  margin-right: 0;
-	  }
-  
-	  .tabs #tab-3 .text-area {
-		  margin-bottom: 0;
-	  }
-  
-	  .tabs #tab-3 .icon-cards-area .card {
-		  display: inline-block;
-		  width: 44%;
-		  margin-right: 2.5rem;
-		  vertical-align: top;
-	  }
-  
-	  .tabs #tab-3 div.card:nth-child(2n+2) {
-		  margin-right: 0;
-	  }
-  
-	  .tabs #tab-3 img {
-		  margin-bottom: 0;
-	  }
-	  /* end of features */
-  
-  
-	  /* Details Lightboxes */
-	  .lightbox-basic {
-		  padding: 3rem 3rem;
-	  }
-	  /* end of details lightboxes */
-  
-  
-	  /* Screenshots */
-	  .slider-2 .swiper-button-prev {
-		  width: 1.375rem;
-		  background-size: 1.375rem 2.125rem;
-	  }
-  
-	  .slider-2 .swiper-button-next {
-		  width: 1.375rem;
-		  background-size: 1.375rem 2.125rem;
-	  }
-	  /* end of screenshots */
-  
-  
-	  /* Contact */
-	  .form .list-unstyled li {
-		  display: inline-block;
-		  margin-right: 0.5rem;
-		  margin-left: 0.5rem;
-	  }
-  
-	  .form .list-unstyled .address {
-		  display: block;
-	  }
-	  /* end of contact */
-  
-  
-	  /* Extra Pages */
-	  .ex-header {
-		  padding-top: 11rem;
-		  padding-bottom: 9rem;
-	  }
-  
-	  .ex-basic-2 .text-container.dark {
-		  padding: 2.5rem 3rem 2rem 3rem;
-	  }
-  
-	  .ex-basic-2 .text-container.column {
-		  width: 90%;
-		  margin-right: auto;
-		  margin-left: auto;
-	  }
-	  /* end of extra pages */
-  
-	.counter #counter .cell {
-	  width: 8rem;
-	  margin-right: 2.5rem;
-	  margin-left: 2.5rem;
-	}
-  
-	.counter #counter .counter-value {
-	  font: 700 3.25rem/3.5rem "Overpass";
-	}
-  }
-  /* end of min-width width 768px */
   
   
   /* Min-width width 992px */
   @media (min-width: 992px) {
   
-	  /* Navigation */
-	  .navbar-custom .social-icons {
-		  display: block;
-		  margin-left: 0.5rem;
-	  }
-  
 	  .navbar-custom .fa-stack {
-		  margin-bottom: 0.1875rem;
-		  margin-left: 0.375rem;
-		  font-size: 1rem;
+		  
 	  }
   
 	  .navbar-custom .fa-stack-2x {
@@ -1852,351 +1082,4 @@ Table Of Contents:
 	  }
 	  /* end of navigation */
   
-  
-	  /* General Styles */
-	  .p-heading {
-		  width: 65%;
-	  }
-	  /* end of general styles */
-  
-  
-	  /* Header */
-	  .header .header-content {
-		  /* padding-top: 13rem;
-		  padding-bottom: 10rem; */
-		  text-align: left;
-	  }
-  
-	  .header .text-container {
-		  margin-top: 6.5rem;
-	  }
-	  /* end of header */
-  
-  
-	  /* Features */
-	  .tabs .card-body {
-		  padding: 1rem 0 1.5rem 0;
-	  }
-  
-	  .tabs #tab-1 .card.left-pane {
-		  text-align: right;
-	  }
-  
-	  .tabs #tab-1 .card.left-pane .text-wrapper,
-	  .tabs #tab-1 .card.right-pane .text-wrapper {
-		  width: 68%;
-	  }
-  
-	  .tabs #tab-1 .card.left-pane .card-icon {
-		  float: none;
-		  margin-right: 0;
-		  margin-left: 1rem;
-	  }
-  
-	  .tabs #tab-1 img {
-		  margin-top: 0;
-		  margin-bottom: 0;
-	  }
-  
-	  .tabs #tab-2 .icon-cards-area {
-		  margin-top: 2.25rem;
-	  }
-  
-	  .tabs #tab-2 .icon-cards-area .card {
-		  width: 45%;
-		  margin-right: 3.5rem;
-	  }
-  
-	  .tabs #tab-2 .icon-cards-area .card p {
-		  margin-bottom: 0.5rem;
-	  }
-  
-	  .tabs #tab-3 .icon-cards-area .card {
-		  width: 45%;
-		  margin-right: 3.5rem;
-	  }
-  
-	  .tabs #tab-3 .icon-cards-area .card p {
-		  margin-bottom: 0.5rem;
-	  }
-	  /* end of features */
-  
-  
-	  /* Video */
-	  .basic-1 .image-container {
-		  max-width: 53.125rem;
-		  margin-right: auto;
-		  margin-left: auto;
-	  }
-	  /* end of video */
-  
-  
-	  /* Details 1 */
-	  .basic-2 img {
-		  margin-bottom: 0;
-	  }
-  
-	  .basic-2 .text-container {
-		  margin-top: 2.625rem;
-	  }
-	  /* end of details 1 */
-  
-  
-	  /* Details 2 */
-	  .basic-3 .text-container {
-		  margin-top: 2.5rem;
-		  margin-bottom: 0;
-	  }
-	  /* end of details 2 */
-  
-  
-	  /* Details Lightboxes */
-	  .lightbox-basic img {
-		  margin-bottom: 0;
-		  margin-left: 0;
-	  }
-  
-	  .lightbox-basic h3 {
-		  margin-top: 0.25rem;
-	  }
-	  /* end of details lightboxes */
-  
-  
-	  /* Screenshots */
-	  .slider-2 .swiper-container {
-		  width: 92%;
-	  }
-	  /* end of screenshots */
-  
-	  /* Statistics */
-	  .counter {
-		  padding-top: 6rem;
-		  padding-bottom: 4.5rem;
-	  }
-  
-	  .counter #counter .cell {
-		  width: 10rem;
-		  margin-right: 2.5rem;
-		  margin-left: 2.5rem;
-	  }
-  
-	  .counter #counter .counter-value {
-		  font: 700 4.25rem/4.5rem "Overpass";
-	  }
-	  /* end of statistics */
-  
-  
-	  /* Extra Pages */
-	  .ex-header h1 {
-		  width: 80%;
-		  margin-right: auto;
-		  margin-left: auto;
-	  }
-  
-	  .ex-basic-2 {
-		  padding-bottom: 5rem;
-	  }
-  
-	  .ex-basic-2 .text-container.column {
-		  margin-bottom: 0;
-	  }
-	  /* end of extra pages */
-  }
-  /* end of min-width width 992px */
-  
-  
-  /* Min-width width 1200px */
-  @media (min-width: 1200px) {
-  
-	  /* Navigation */
-	  /* .navbar-custom {
-		  padding: 2.125rem 5rem 2.125rem 5rem;
-	  } */
-  
-	  .navbar-custom.top-nav-collapse {
-		  padding: 0px 5rem 0.5rem 5rem;
-	  }
-	  /* end of navigation */
-  
-  
-	  /* General Styles */
-	  .p-heading {
-		  width: 44%;
-	  }
-	  /* end of general styles */
-  
-  
-	  /* Header */
-	  .header .text-container {
-		  margin-top: 7.5rem;
-		  /* margin-left: 2.5rem; */
-	  }
-  
-	  .header .image-container {
-		  margin-left: 3rem;
-	  }
-	  /* end of header */
-  
-  
-	  /* Features */
-	  .tabs {
-		  padding-bottom: 6.5rem;
-	  }
-  
-	  .tabs #tab-1 .card.first {
-		  margin-top: 4.25rem;
-	  }
-  
-	  .tabs #tab-1 .card {
-		  margin-bottom: 0.75rem;
-	  }
-  
-	  .tabs #tab-1 .card.left-pane .text-wrapper,
-	  .tabs #tab-1 .card.right-pane .text-wrapper {
-		  width: 73%;
-	  }
-  
-	  .tabs #tab-1 img {
-		  margin-top: 0;
-	  }
-  
-	  .tabs #tab-2 .container {
-		  padding-right: 2.5rem;
-		  padding-left: 2.5rem;
-	  }
-  
-	  .tabs #tab-2 .text-area {
-		  margin-top: 1.5rem;
-		  margin-right: 1rem;
-		  margin-left: 1rem;
-	  }
-  
-	  .tabs #tab-2 .icon-cards-area {
-		  margin-right: 1rem;
-		  margin-left: 1rem;
-	  }
-  
-	  .tabs #tab-2 .icon-cards-area .card {
-		  margin-right: 3.875rem;
-	  }
-  
-	  .tabs #tab-3 .container {
-		  padding-right: 2.5rem;
-		  padding-left: 2.5rem;
-	  }
-  
-	  .tabs #tab-3 .icon-cards-area {
-		  margin-top: 2rem;
-		  margin-left: 1rem;
-	  }
-  
-	  .tabs #tab-3 .icon-cards-area .card {
-		  margin-right: 3.875rem;
-	  }
-  
-	  .tabs #tab-3 .text-area {
-		  margin-right: 1.5rem;
-		  margin-left: 1rem;
-	  }
-	  /* end of features */
-  
-  
-	  /* Details 1 */
-	  .basic-2 .text-container {
-		  margin-top: 4.5rem;
-		  margin-left: 4rem;
-		  margin-right: 1.5rem;
-	  }
-	  /* end of details 1 */
-  
-  
-	  /* Details 2 */
-	  .basic-3 .text-container {
-		  margin-top: 4.5rem;
-		  margin-right: 3.5rem;
-		  margin-left: 2rem;
-	  }
-	  /* end of details 2 */
-  
-	  /* Footer */
-	  .footer .footer-col {
-		  width: 90%;
-	  }
-  
-	  .footer .footer-col.middle {
-		  margin-right: auto;
-		  margin-left: auto;
-	  }
-  
-	  .footer .footer-col.last {
-		  margin-right: 0;
-		  margin-left: auto;
-	  }
-	  /* end of footer */
-  
-  
-	  /* Extra Pages */
-	  .ex-header h1 {
-		  width: 60%;
-		  margin-right: auto;
-		  margin-left: auto;
-	  }
-  
-	  .ex-basic-2 .form-container {
-		  margin-left: 1.75rem;
-	  }
-  
-	  .ex-basic-2 .image-container-small {
-		  margin-left: 1.75rem;
-	  }
-	  /* end of extra pages */
-  }
-  /* end of min-width width 1200px */
-  
-  /**************************/
-  /* PREQ Form              */
-  /**************************/
-  
-  .preq-form{
-	  background: var(--hyper-dark-bg-reverse);
-	  padding-top: 6rem;
-	  padding-bottom: 6rem;
-	  border-top: 1px solid #f1f1f812;
-	  border-bottom: 1px solid #f1f1f812;
-  }
-  
-  .preq-form-iframe{
-	  height: 1675px;
-  }
-  
-  @media (min-width: 440px) {
-  
-	  .preq-form-iframe{
-		  height: 1031px;
-	  }
-  
-  }
-  
-  @media (min-width: 768px) {
-  
-	  .preq-form-iframe{
-		  height: 963px;
-	  }
-  
-  }
-  
-  @media (min-width: 992px) {
-  
-	  .preq-form-iframe{
-		  height: 963px;
-	  }
-  
-  }
-  
-  @media (min-width: 1200px) {
-  
-	  .preq-form-iframe{
-		  height: 946px;
-	  }
-  
-  }
+	}
