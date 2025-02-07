@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>k0rdent: Distributed Container Management for Platform Engineering</title>
+
+  <meta name="description" content="k0rdent is an open-source, Kubernetes-native distributed container management environment for platform engineers. Design, automate, and manage Internal Developer Platforms (IDPs). Deploy AI, ML, and modern workloads at scale with declarative, composable infrastructure. Free and open-source.">
+  <meta name="author" content="Mirantis">
+  <meta name="keywords" content="k0s, kos, kubernetes, bare-metal, on-premise, edge, iot, private cloud, public cloud, lightweight, single binary, control plane isolation, open source, cloud native, containers, docker, distribution, cluster, mirantis">
+  <meta name="language" content="english">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <meta property="og:title" content="k0rdent: Distributed Container Management for Platform Engineering" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="k0rdent is an open-source, Kubernetes-native distributed container management environment for platform engineers. Design, automate, and manage Internal Developer Platforms (IDPs). Deploy AI, ML, and modern workloads at scale with declarative, composable infrastructure. Free and open-source." />
+  <meta property="og:image" content="https://a.storyblok.com/f/189401/1415x643/a478bf2301/k0rdent-og-image.png" />
+  <meta property="og:url" content="https://k0rdent.io/" />
+
+  <!-- Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <link href="css/fontawesome-all.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+
+  <!-- Favicon: https://favicon.io/favicon-converter/ -->
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="images/favicon/site.webmanifest">
+
+  <!-- Plausible analytics script -->
+  <script defer data-domain="k0rdent.io" src="https://plausible.io/js/script.js"></script>
+</head>
+
+<body data-spy="scroll" data-target=".fixed-top">
+
+<!-- Preloader -->
+<div class="spinner-wrapper">
+  <div class="spinner">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+  </div>
+</div>
+<!-- end of preloader -->
+
+<!-- Above Navigation -->
+<div class="fixed-top-above navbar-custom ml-auto">
+  <div class="dropdown">
+  <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Mirantis Open Source Projects
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="https://k0sproject.io/" target="_blank">
+      <img src="https://a.storyblok.com/f/189401/156x157/1b1ffe8161/k0s-logo-2025-mark-inverted.svg" class="mr-3"/><p>k0s</p>
+    </a>
+    <a class="dropdown-item" href="https://k0smotron.io/" target="_blank">
+      <img src="https://a.storyblok.com/f/189401/191x181/8a25fc0e46/k0smotron-logo-mark-inverted.svg" class="mr-3"/><p>k0smotron</p>
+    </a>
+    <a class="dropdown-item" href="https://www.mirantis.com/software/amazee-io" target="_blank">
+      <img src="https://a.storyblok.com/f/189401/48x56/39eb540da5/lagoon-mark.png" class="mr-3"/><p>Lagoon</p>
+    </a>
+  </div>
+</div>
+</div>
+<!-- end above navigation -->
+
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
+
+  <a class="navbar-brand" href="index.html">
+    <div>
+      <img src="images/k0rdent-logo-horizontal-inverted.svg" alt="k0rdent">
+    </div>
+  </a>
+
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="navbar-toggler-awesome fas fa-bars" style="width:30px;height:30px;fill:#fff;"><path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="navbar-toggler-awesome fas fa-times" style="width: 30px;height:30px;fill:#fff"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="https://docs.k0rdent.io/" target="_blank">Docs</a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="https://www.mirantis.com/software/k0rdent/" target="_blank">Support</a>
+      </li> -->
+    </ul>
+      <span class="fa-stack">
+        <a href="https://github.com/k0rdent/k0rdent" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fa-stack-2x">
+              <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="fa-stack-1x" style="height:1em;margin-top:0.5em">
+              <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/>
+            </svg>
+        </a>
+      </span>
+      <span class="fa-stack">
+        <a href="https://cloud-native.slack.com/archives/C08A63Q4NCD" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fa-stack-2x">
+            <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="fa-stack-1x" style="height:1em;margin-top:0.5em">
+            <path d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1c0-25.9 21.16-47.06 47.06-47.06h47.06v47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.84c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V315.1zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S139 32 164.9 32s47.06 21.16 47.06 47.06v47.06H164.9zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 243.96 0 222.8 0 196.9s21.16-47.06 47.06-47.06H164.9zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06h-47.06V196.9zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06V79.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06V196.9zM283.1 385.88c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06v-47.06h47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06 0-25.9 21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06H283.1z"/>
+          </svg>
+        </a>
+      </span>
+      <span class="fa-stack">
+      <a href="https://www.youtube.com/@k0rdentoss" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fa-stack-2x">
+          <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="fa-stack-1x" style="height:1em;margin-top:0.5em">
+          <path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/>
+        </svg>
+      </a>
+      </span>
+      <span class="fa-stack">
+    <a href="https://x.com/k0rdent" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fa-stack-2x">
+        <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fa-stack-1x" style="height:1em;margin-top:0.5em">
+        <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/>
+      </svg>
+    </a>
+</span>
+    <!-- </span> -->
+  </div>
+</nav>
+<!-- end of navigation -->
+
+<!-- Content -->
+ <div class="error-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h1>404</h1>
+                <h2>Lost in space? Let’s get you to the right galaxy.</h2>
+                <a class="blue-btn" href="https://docs.k0rdent.io/latest/guide-to-quickstarts/" target="_blank">BACK TO K0RDENT.IO</a>
+            </div>
+        </div>
+    </div>
+ </div>
+ <!-- end of content -->
+
+<!-- Originated By Mirantis -->
+<div id="originated-by-mirantis" class="originated-by-mirantis">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-container">
+                      <h2 class="align-middle">Originated by</h2><img src="images/mirantis-logo-horizontal-inverted-one-color.svg" class="align-middle pl-2" />
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+</div>
+<!-- end of originated by mirantis -->
+
+<!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. -->
+<!-- Footer -->
+<div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="footer-col">
+                      <img src="images/k0rdent-logo-horizontal-inverted.svg" alt="alternative" style="max-width: 200px; height: auto;">
+                    </div>
+                </div> <!-- end of col -->
+                <div class="col-md-3 offset-md-1">
+                    <div class="footer-col middle">
+                        <h4>Resources</h4>
+                        <ul>
+                          <li class="media">
+                            <div class="media-body"><a href="https://docs.k0rdent.io/latest/guide-to-quickstarts/">Get Started</a></div>
+                          </li>
+                          <li class="media">
+                            <div class="media-body"><a href="https://docs.k0rdent.io/">Documentation</a></div>
+                          </li>
+                          <li class="media">
+                            <div class="media-body"><a href="https://github.com/k0rdent/k0rdent">Source Code</a></div>
+                          </li>
+                          <li class="media">
+                            <div class="media-body"><a href="https://legal.mirantis.com/#privacy-notice">Privacy Policy</a></div>
+                          </li>
+                        </ul>
+                    </div>
+                </div> <!-- end of col -->
+                <div class="col-md-4">
+                    <div class="footer-col last">
+                        <h4>Community</h4>
+                        <span class="fa-stack">
+                            <a href="https://github.com/k0rdent/k0rdent" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fa-stack-2x">
+                                  <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="fa-stack-1x" style="height:1em;margin-top:0.5em">
+                                  <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/>
+                                </svg>
+                            </a>
+                        </span>
+                        <span class="fa-stack">
+                            <a href="https://communityinviter.com/apps/cloud-native/cncf" target="_blank">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fa-stack-2x">
+                                <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/>
+                              </svg>
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="fa-stack-1x" style="height:1em;margin-top:0.5em">
+                                <path d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1c0-25.9 21.16-47.06 47.06-47.06h47.06v47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.84c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V315.1zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S139 32 164.9 32s47.06 21.16 47.06 47.06v47.06H164.9zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 243.96 0 222.8 0 196.9s21.16-47.06 47.06-47.06H164.9zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06h-47.06V196.9zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06V79.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06V196.9zM283.1 385.88c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06v-47.06h47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06 0-25.9 21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06H283.1z"/>
+                              </svg>
+                            </a>
+                        </span>
+                        <span class="fa-stack">
+                          <a href="https://www.youtube.com/@k0rdentoss" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fa-stack-2x">
+                              <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="fa-stack-1x" style="height:1em;margin-top:0.5em">
+                              <path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/>
+                            </svg>
+                          </a>
+                      </span>
+                      <span class="fa-stack">
+                        <a href="https://x.com/k0rdent" target="_blank">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fa-stack-2x">
+                            <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/>
+                          </svg>
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fa-stack-1x" style="height:1em;margin-top:0.5em">
+                            <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/>
+                          </svg>
+                        </a>
+                    </span>
+                    <span class="fa-stack">
+                      <a href="https://docs.k0rdent.io/" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fa-stack-2x">
+                          <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="fa-stack-1x" style="height:1em;margin-top:0.5em">
+                          <path d="M96 0C43 0 0 43 0 96L0 416c0 53 43 96 96 96l288 0 32 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l0-64c17.7 0 32-14.3 32-32l0-320c0-17.7-14.3-32-32-32L384 0 96 0zm0 384l256 0 0 64L96 448c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16l192 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-192 0c-8.8 0-16-7.2-16-16zm16 48l192 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-192 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/>
+                        </svg>
+                      </a>
+                  </span>
+                    </div>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+</div>
+<!-- end of footer -->
+
+
+<!-- Copyright -->
+<div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright © 2025 <a href="https://mirantis.com">Mirantis</a> - All rights reserved.</p>
+                </div> <!-- end of col -->
+            </div> <!-- enf of row -->
+        </div> <!-- end of container -->
+</div>
+<!-- end of copyright -->
+
+
+    <!-- Scripts -->
+    <script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="js/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->
+    <script src="js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
+    <script src="js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
+    <script src="js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
+    <script src="js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
+    <script src="js/morphext.min.js"></script> <!-- Morphtext rotating text in the header -->
+    <script src="js/validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
+    <script src="js/particles.min.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/asciinema-player.js"></script>
+    <script src="js/scripts.js"></script> <!-- Custom scripts -->
+</body>
+</html>
