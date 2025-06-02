@@ -219,9 +219,19 @@ Table Of Contents:
 	  color: white;
 	  z-index: 1200;
 	  border-bottom: 0px !important;
+	  .enterprise-k0rdent {
+		float:right;
+		font-size:12px;
+		text-decoration:none;
+		margin-right:24px;
+		padding-top:10px;
+		font-weight:400;
+	  }
 	  .dropdown {
-		  background-color: transparent;
-		  height: 30px;
+		background-color: transparent;
+		height: 30px;
+		width: 200px;
+		float: right;
 		  .dropdown-toggle {
 			  background-color: transparent;
 			  color: white; 
@@ -267,9 +277,9 @@ Table Of Contents:
 		  }
 	  }
 	  .dropdown:hover > .dropdown-menu {
-		display: block; /* this makes the dropdown menu stay open while hovering it */
-		min-width: auto;
-	}
+				display: block; 
+				min-width: auto;
+			}
   }
   .navbar-custom {
 	background-color: var(--navbar-color);
